@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kết nối giáo viên & học sinh</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f5f5f5;
+    }
+    header {
+      background: #4a90e2; color: white;
+      text-align: center; padding: 15px;
+    }
+    nav input {
+      padding: 8px; width: 50%; margin-top: 10px;
+    }
+    main {
+      padding: 20px;
+    }
+    .teacher-card {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .teacher-card button {
+      background: #4a90e2; color: white;
+      border: none; padding: 8px 12px;
+      border-radius: 4px; cursor: pointer;
+    }
+    .teacher-card button:hover {
+      background: #357ac9;
+    }
+    footer {
+      background: #4a90e2; color: white;
+      text-align: center; padding: 10px;
+      margin-top: 20px;
+    }
+    #lesson {
+      background: white; padding: 15px; border-radius: 8px; margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌐 Kết nối Giáo viên & Học sinh</h1>
+  <nav>
+    <input type="text" id="search" placeholder="🔍 Tìm giáo viên theo môn...">
+  </nav>
+</header>
+
+<main>
+  <h2>Danh sách giáo viên</h2>
+
+  <div class="teacher-card">
+    <h3>Nguyễn Văn A - Toán</h3>
+    <p>Kinh nghiệm: 5 năm dạy THPT</p>
+    <p>Đánh giá: ⭐⭐⭐⭐☆</p>
+    <button onclick="showLesson('Nguyễn Văn A', 'Toán')">Đặt buổi học</button>
+  </div>
+
+  <div class="teacher-card">
+    <h3>Trần Thị B - Tiếng Anh</h3>
+    <p>Kinh nghiệm: 3 năm dạy giao tiếp</p>
+    <p>Đánh giá: ⭐⭐⭐⭐⭐</p>
+    <button onclick="showLesson('Trần Thị B', 'Tiếng Anh')">Đặt buổi học</button>
+  </div>
+
+  <div id="lesson" style="display:none;">
+    <h2>📚 Buổi học trực tuyến</h2>
+    <p id="lesson-info"></p>
+    <p><b>Video call:</b> <i>Chức năng demo (giả lập)</i></p>
+    <textarea id="note" rows="4" cols="50" placeholder="Ghi chép bài học..."></textarea><br><br>
+    <button onclick="saveNote()">Lưu ghi chú</button>
+  </div>
+</main>
+
+<footer>
+  © 2025 - Website Kết nối Giáo viên & Học sinh
+</footer>
+
+<script>
+  function showLesson(teacher, subject) {
+    document.getElementById("lesson").style.display = "block";
+    document.getElementById("lesson-info").innerText =
+      "Buổi học với " + teacher + " - Môn: " + subject;
+  }
+
+  function saveNote() {
+    const note = document.getElementById("note").value;
+    if (note.trim() !== "") {
+      alert("✅ Ghi chú đã được lưu!");
+    } else {
+      alert("⚠️ Bạn chưa nhập ghi chú.");
+    }
+  }
+</script>
+
+</body>
+</html>
